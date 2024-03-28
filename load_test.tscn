@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://cq8p13kfy4cuf"]
+
+[ext_resource type="Script" path="res://load_test.gd" id="1_ha8ec"]
+[ext_resource type="Script" path="res://addons/godot_rpm_avatar/rpm_settings.gd" id="2_fq1tk"]
+
+[sub_resource type="Resource" id="Resource_haakg"]
+script = ExtResource("2_fq1tk")
+body_tracker = "/vmc/body"
+face_tracker = "/vmc/head"
+quality = 1
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mxfgc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_gw6ve"]
+sky_material = SubResource("ProceduralSkyMaterial_mxfgc")
+
+[sub_resource type="Environment" id="Environment_r8g28"]
+background_mode = 2
+sky = SubResource("Sky_gw6ve")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="LoadTest" type="Node3D"]
+script = ExtResource("1_ha8ec")
+rpm_settings = SubResource("Resource_haakg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r8g28")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 4.37114e-08, -7.57104e-08, 0, 0.866026, 0.5, 8.74228e-08, 0.5, -0.866026, 0, 1.8, -1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 498.0
+offset_bottom = 78.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "ReadyPlayerMe 
+VRM Avatar "
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AvatarID" type="LineEdit" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "65fa409029044c117cbd3e3c"
+
+[node name="LoadButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Load"
+
+[node name="Status" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 2
+
+[connection signal="gui_input" from="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AvatarID" to="." method="_on_avatar_id_gui_input"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]

@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Godot ReadyPlayerMe Avatar"
+run/main_scene="res://load_test.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+RpmLoader="*res://addons/godot_rpm_avatar/rpm_loader.gd"
+VmcPlugin="*res://addons/godot_vmc_tracker/vmc_plugin.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_rpm_avatar/plugin.cfg", "res://addons/godot_vmc_tracker/plugin.cfg")
+
+[godot_vmc_tracker]
+
+tracking/position_mode=1
+
+[rendering]
+
+renderer/rendering_method="mobile"
