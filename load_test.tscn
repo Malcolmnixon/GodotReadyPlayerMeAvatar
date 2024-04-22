@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq8p13kfy4cuf"]
+[gd_scene load_steps=7 format=4 uid="uid://cq8p13kfy4cuf"]
 
 [ext_resource type="Script" path="res://load_test.gd" id="1_ha8ec"]
 [ext_resource type="Script" path="res://addons/godot_rpm_avatar/rpm_settings.gd" id="2_fq1tk"]
 
 [sub_resource type="Resource" id="Resource_haakg"]
 script = ExtResource("2_fq1tk")
-body_tracker = "/vmc/body"
-face_tracker = "/vmc/head"
+body_tracker = "/vmc/body_tracker"
+face_tracker = "/vmc/face_tracker"
 quality = 1
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mxfgc"]
