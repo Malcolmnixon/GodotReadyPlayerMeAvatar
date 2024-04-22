@@ -204,25 +204,27 @@ func _load_gltf(
 	# Retarget the skeleton to Godot Humanoid
 	RpmBody.retarget(skeleton)
 
-	# Construct the XRBodyModifier3D
-	var body_modifier := XRBodyModifier3D.new()
-	body_modifier.add_child(scene)
+	# Construct the XRNode3D (root)
+	var xr_node := XRNode3D.new()
+	xr_node.tracker = settings.body_tracker
+	xr_node.add_child(scene)
 
-	# Configure the XRBodyModifier3D
+	# Construct the XRBodyModifier3D (under skeleton)
+	var body_modifier := XRBodyModifier3D.new()
+	skeleton.add_child(body_modifier)
 	body_modifier.body_tracker = settings.body_tracker
-	body_modifier.target = body_modifier.get_path_to(skeleton)
 	body_modifier.bone_update = XRBodyModifier3D.BONE_UPDATE_ROTATION_ONLY
 
 	# Construct and append the XRFaceModifier3D
 	if settings.face_tracker != "":
 		var face_modifier := XRFaceModifier3D.new()
-		body_modifier.add_child(face_modifier)
+		xr_node.add_child(face_modifier)
 		face_modifier.face_tracker = settings.face_tracker
 		face_modifier.target = face_modifier.get_path_to(mesh)
 
 	# Report the load completed
 	print_verbose("RpmLoader: loaded - id=", id)
-	_load_complete.call_deferred(id, body_modifier)
+	_load_complete.call_deferred(id, xr_node)
 
 
 # Report load complete
