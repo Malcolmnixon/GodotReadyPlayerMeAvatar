@@ -80,6 +80,18 @@ RpmLoader.load_web("65fa409029044c117cbd3e3c")
 RpmLoader.load_file("C:/temp/66039f031791600d6e5147b0.glb", "66039f031791600d6e5147b0")
 ```
 
+### Avatar Format
+
+All avatars must be in the `T` pose or the avatar will be corrupted. The `load_web` method provides the following download parameters:
+
+| Parameter | Value |
+| :---- | :---- |
+| `quality` | `low` / `medium` / `high` |
+| `pose` | `T` |
+| `morphTargets` | `Default` / `ARKit` |
+
+See the [ReadyPlayerMe 3D Avatars Rest API](https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/avatars/get-3d-avatars) documentation for a complete list of parameters.
+
 ## Licensing
 
 Code in this repository is licensed under the MIT license.
