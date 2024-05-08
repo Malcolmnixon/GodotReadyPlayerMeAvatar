@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cq8p13kfy4cuf"]
+[gd_scene load_steps=7 format=3 uid="uid://cq8p13kfy4cuf"]
 
 [ext_resource type="Script" path="res://load_test.gd" id="1_ha8ec"]
 [ext_resource type="Script" path="res://addons/godot_rpm_avatar/rpm_settings.gd" id="2_fq1tk"]

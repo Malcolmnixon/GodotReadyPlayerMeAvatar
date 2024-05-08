@@ -5,15 +5,13 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/Malcolmnixon/GodotReadyPlayerMeAvatar?style=plastic)
 ![GitHub](https://img.shields.io/github/license/Malcolmnixon/GodotReadyPlayerMeAvatar?style=plastic)
 
-This repository contains a [Ready Player Me](https://readyplayer.me/) avatar
-loader for Godot that can load avatars at runtime from the internet or local
-files, and can configure them to be driven through the XR tracker system.
+This repository contains a [Ready Player Me](https://readyplayer.me/) avatar loader for Godot that can load avatars at runtime from the internet or local files, and can configure them to be driven through the XR tracker system.
 
 ![Avatar Demo](/docs/avatar_demo.png)
 
 ## Versions
 
-Official releases are tagged and can be found [here](https://github.com/Malcolmnixon/GodotXRAxisStudioTracker/releases).
+Official releases are tagged and can be found [here](https://github.com/Malcolmnixon/GodotReadyPlayerMeAvatar/releases).
 
 The following branches are in active development:
 |  Branch   |  Description                  |  Godot version   |
@@ -22,34 +20,27 @@ The following branches are in active development:
 
 ## Overview
 
-Ready Player Me is an avatar system for games, apps, and VR/AR experiences.
-Avatars can be created online through the web interface; and then downloaded
-over a REST interface.
+Ready Player Me is an avatar system for games, apps, and VR/AR experiences. Avatars can be created online through the web interface; and then downloaded over a REST interface.
 
-The Godot ReadyPlayerMe Avatar plugin supports downloading avatars given
-their avatar ID. The avatars are downloaded and parsed in the background
-and then provided to the user code as nodes ready for adding to a scene.
+The Godot ReadyPlayerMe Avatar plugin supports downloading avatars given their avatar ID. The avatars are downloaded and parsed in the background and then provided to the user code as nodes ready for adding to a scene.
 
 ## Usage
 
-The following steps shw how to add the Godot ReadyPlayerMe Avatar plugin to a
-project.
+The following steps show how to add the Godot ReadyPlayerMe Avatar plugin to a project.
 
 ### Enable Plugin
 
-The addon files need to be copied to the `/addons/godot_rpm_avatar` folder of
-the Godot project, and then enabled in the Plugins under the Project Settings:
+The addon files need to be copied to the `/addons/godot_rpm_avatar` folder of the Godot project, and then enabled in the Plugins under the Project Settings:
 ![Enable Plugin](/docs/enable_plugin.png)
 
-Once enabled, the `rpm_loader.gd` script will be configured as an autoload
-node called `RpmLoader`.
+Once enabled, the `rpm_loader.gd` script will be configured as an autoload node called `RpmLoader`.
 
 ### Configuring Avatars
 
 An `RpmSettings` resource is used to configure how avatars are loaded:
 ![RPM Settings](/docs/rpm_settings.png)
-* `body_tracker` - The name of the XRBodyTracker to drive the avatar
-* `face_tracker` - The name of the XRFaceTracker to drive the avatar
+* `body_tracker` - The name of the [XRBodyTracker](https://docs.godotengine.org/en/latest/classes/class_xrbodytracker.html#class-xrbodytracker) to drive the avatar
+* `face_tracker` - The name of the [XRFaceTracker](https://docs.godotengine.org/en/latest/classes/class_xrfacetracker.html) to drive the avatar
 * `quality` - Quality of the avatar to load
 
 ### Load Signals
