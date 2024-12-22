@@ -7,14 +7,14 @@ on:
 jobs:
   build:
     name: Assembling artifacts
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     # Note, to satisfy the asset library we need to make sure our zip files have a root folder
     # this is why we checkout into demo/godot_rpm_avatar
     # and build plugin/godot_rpm_avatar
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: demo/godot_rpm_avatar
       - name: Create Godot RPM Avatar plugin
@@ -29,13 +29,13 @@ jobs:
           rm -rf demo/godot_rpm_avatar/.git
           rm -rf demo/godot_rpm_avatar/.github
       - name: Create Godot RPM Avatar library artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: godot_rpm_avatar
           path: |
             plugin
       - name: Create Godot RPM Avatar demo artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: godot_rpm_avatar_demo
           path: |

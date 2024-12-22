@@ -36,5 +36,3 @@ func _on_load_complete(_id : String, avatar : Node3D) -> void:
 
 func _on_load_failed(_id : String, reason : String) -> void:
 	%Status.text = reason
-
-
